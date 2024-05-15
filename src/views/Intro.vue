@@ -15,7 +15,7 @@
       </div>
 
       <div class="short_info">
-        <img src="img/logo/dark.png" alt="" />
+        <img src="/src/assets/img/logo/dark.png" alt="" />
         <h3>Personal Portfolio Template</h3>
       </div>
       <span class="intro_line"></span>
@@ -24,7 +24,7 @@
       <div class="demos">
         <div class="left">
           <div class="desc">
-            <img src="img/intro/1.png" alt="" />
+            <img src="/src/assets/img/intro/1.png" alt="" />
             <h3 class="title">Light Demo</h3>
           </div>
 
@@ -32,7 +32,7 @@
         </div>
         <div class="right">
           <div class="desc">
-            <img src="img/intro/2.png" alt="" />
+            <img src="/src/assets/img/intro/2.png" alt="" />
             <h3 class="title">Dark Demo</h3>
           </div>
           <router-link class="intro_link" to="/index-dark" target="_blank"></router-link>

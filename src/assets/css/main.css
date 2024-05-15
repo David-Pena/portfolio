@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* @import "./plugins.css"; */
+@import "./colors.css";
+@import "./dark.css";
+@import "./style.css";
+@import "./plugins.css";
+@import "./magnifipopup.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.kura_tm_modalbox .close {
+  left: 94% !important;
+  margin-left: 0 !important;
+  top: 10px !important;
+}
+.kura_tm_modalbox .close .svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+#send_message > .svg {
+  filter: invert(1);
+}
+
+#send_message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .svg {
+  filter: invert(1);
+}

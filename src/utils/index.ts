@@ -20,6 +20,14 @@ function kuraTmPreloader() {
   }
 }
 
+function kuraTmDataImages() {
+  const d = document.querySelectorAll('[data-img-url')
+  for (let i = 0; i < d.length; i++) {
+    const element = d[i] as any
+    element.style.backgroundImage = `url(${element.getAttribute('data-img-url')})`
+  }
+}
+
 export const kuraTmMyLoad = () => {
   kuraTmPreloader()
   setTimeout(() => {
@@ -99,4 +107,52 @@ export const aTagClick = () => {
       e.preventDefault()
     })
   }
+}
+
+export const dataImage = () => {
+  kuraTmDataImages()
+}
+
+export const kuraTmServicePopup = () => {
+  const modalBox = document.querySelector('.kura_tm_modalbox')
+  const buttons = document.querySelectorAll(' .services> ul> li> a,.kura_tm_full_link_')
+  const closePopup = modalBox?.getElementsByClassName('close')[0]
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e: any) => {
+      const element = e?.target?.parentElement
+      let elImage = element.getElementsByClassName('image_')[0]
+      elImage = elImage.currentSrc ? elImage.currentSrc : elImage.getAttribute('data-img-url')
+      const title = element.getElementsByClassName('span')[0].innerText
+      const date =
+        element.getElementsByClassName('date')[0] &&
+        element.getElementsByClassName('date')[0].innerText
+      const parentLi = element.parentElement
+      const description = parentLi.getElementsByClassName('description')[0].innerHTML
+      const news_popup_informations = modalBox!.getElementsByClassName('news_popup_informations')[0]
+      // Image
+      news_popup_informations.innerHTML = `<div class="image"><img src="img/thumbs/4-2.jpg" alt=""><div class="main" data-img-url=${elImage} ></div></div>`
+      kuraTmDataImages()
+
+      // title
+      const divTitle = document.createElement('div')
+      divTitle.classList.add('details')
+      divTitle.innerHTML = `${date ? `<span>${date}</span>` : ''} <h3>${title}</h3>`
+      news_popup_informations.appendChild(divTitle)
+
+      // text
+      const divText = document.createElement('div')
+      divText.innerHTML = description
+      divText.classList.add('text')
+      news_popup_informations.appendChild(divText)
+      // popup open
+      modalBox!.classList.add('opened')
+      return false
+    })
+  })
+
+  closePopup?.addEventListener('click', () => {
+    modalBox!.classList.remove('opened')
+    modalBox!.getElementsByClassName('news_popup_informations')[0].innerHTML = ''
+    return false
+  })
 }
